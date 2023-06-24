@@ -1,12 +1,8 @@
 import readline
 from os import system
 from colorama import Fore, init
-from json import load
 
-path = open("path.json","r")
-path = load(path)
 
-print(path)
 init()
 
 
@@ -71,7 +67,7 @@ while 1:
         else:
             
             print(' ' + Fore.RESET)
-            system(path + " manage.py " + command)
+            system(f"python-django manage.py {command}")
             
     except KeyboardInterrupt:
         print("\nKeyboard interrupted !!!\n")
