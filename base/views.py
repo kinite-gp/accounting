@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http.response import HttpResponse
 from .models import Expense,Income,Note
 from .script import exin
-from .forms import LoginForm,ExpenseForm
+from .forms import LoginForm,ExpenseForm,IncomeForm,NoteForm
 from django.contrib.auth import authenticate, login, logout,user_logged_in
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
@@ -12,12 +12,14 @@ def dashbourd(request):
     exp = Expense.objects.all()
     inc = Income.objects.all()
     nt = Note.objects.all()
+
     
     context = {
         "exp" : len(exp),
         "inc" : len(inc),
         "nt" : len(nt),
-        "ss" : exin,
+        "ss" : exin()[1],
+        "ssmark" : exin()[0],
     }
     
     return render(request,"base\\html\\base.html",context)
@@ -53,15 +55,52 @@ def expense_page(request):
     if request.method == "POST":
         form = ExpenseForm(request.POST)
         if form.is_valid():
-            mdl = Expense.objects.create()
-            mdl.title = form.title
-            mdl.description = form.description
-            mdl.price = form.price
-            mdl.tag = form.tag
-            mdl.favorite = form.tag
-            mdl.save()
+            obj_form = Expense.objects.create()
+            mdl = form.cleaned_data
+            obj_form.title = mdl["title"]
+            obj_form.description = mdl["description"]
+            obj_form.price = mdl["price"]
+            obj_form.tag = mdl["tag"]
+            obj_form.favorite = mdl["favorite"]
+            obj_form.save()
             return redirect("dashbourd")
     else:
         form = ExpenseForm()
         return render(request, "base\\html\\expense.html", {"form":form})
     
+
+@login_required
+def income_page(request):
+    if request.method == "POST":
+        form = IncomeForm(request.POST)
+        if form.is_valid():
+            obj_form = Income.objects.create()
+            mdl = form.cleaned_data
+            obj_form.title = mdl["title"]
+            obj_form.description = mdl["description"]
+            obj_form.price = mdl["price"]
+            obj_form.tag = mdl["tag"]
+            obj_form.favorite = mdl["favorite"]
+            obj_form.save()
+            return redirect("dashbourd")
+    else:
+        form = IncomeForm()
+        return render(request, "base\\html\\income.html", {"form":form})
+    
+
+@login_required
+def note_page(request):
+    if request.method == "POST":
+        form = NoteForm(request.POST)
+        if form.is_valid():
+            obj_form = Note.objects.create()
+            mdl = form.cleaned_data
+            obj_form.title = mdl["title"]
+            obj_form.description = mdl["description"]
+            obj_form.tag = mdl["tag"]
+            obj_form.favorite = mdl["favorite"]
+            obj_form.save()
+            return redirect("dashbourd")
+    else:
+        form = NoteForm()
+        return render(request, "base\\html\\note.html", {"form":form})

@@ -9,12 +9,18 @@ def exin():
     inc = 0
     
     for expense in exp_model:
-        exp = exp + expense.price
+        exp = exp + int(expense.price)
         
     for income in inc_model:
-        inc = inc + income.price
+        inc = inc + int(income.price)
 
-    return inc - exp
+    exin_value = inc - exp
+    
+    if str(exin_value)[0] == "-":
+        return [exin_value*-1 , "-"]
+    else:
+        return [exin_value , ""]
+
         
 
 

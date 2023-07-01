@@ -1,71 +1,8 @@
-{% load static %}
+{% extends 'base\html\main.html' %}
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{% static 'css\main.css' %}" />
-    <title>Document</title>
-    <style>
-      @font-face {
-        font-family: "shabnam";
-        font-style: normal;
-        font-weight: 400;
-        src: url("{% static 'font\\Shabnam.eot' %}");
-        src: url("{% static 'font\\Shabnam.eot' %}?#iefix")
-            format("embedded-opentype"),
-          url("{% static 'font\\Shabnam.woff2' %}") format("woff2"),
-          url("{% static 'font\\Shabnam.woff' %}") format("woff"),
-          url("{% static 'font\\Shabnam.ttf' %}") format("truetype");
-      }
-
-      body {
-        background-image: url("{% static 'image\\background.jpg' %}");
-        font-family: shabnam;
-      }
-
-      
-    </style>
-  </head>
-  <script
-    data-cfasync="false"
-    type="text/javascript"
-    src="https://code.jquery.com/jquery.min.js"
-  ></script>
-  <script>
-    function topFunction() {
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
-    }
-  </script>
-  <body>
-    <header>
-      <div class="inliner">
-        <nav>
-          <div>
-            <ul class="inliner" id="list">
-              <li><a href="">داشبورد</a></li>
-              <li><a href="">یادداشت</a></li>
-              <li><a href="">خرج</a></li>
-              <li><a href="">دخل</a></li>
-            </ul>
-          </div>
-        </nav>
-        <div class="space"></div>
-        <nav>
-          <a href="">
-            <img class="logo" src="{% static 'icon\icon.png' %}" />
-          </a>
-        </nav>
-      </div>
-    </header>
-    <hr/>
-
-
-    <main>
+{% block "expense" %}
         <div class="metric">
+          <h4>ثبت هزینه</h4>
             <form method="post" name="expense">
                 {% csrf_token %}
                 {{ form.as_div }}
@@ -74,19 +11,7 @@
             </form>
             
         </div>
-    </main>
-    
-    <div class="fix-scroll">
-      
-    </div>
+{% endblock "expense" %}
 
-    <div class="tools">
-      <ul class="inliner-tools">
-        <li><a href="">بارگزاری مجدد</a></li>
-        <li><a href="{% url 'admin:index' %}">ادمین پنل</a></li>
-        <li><a href="{% url 'logout_page' %}">خروج از اکانت</a></li>
-        <li><a  onclick="topFunction()">رفتن به بالای صفحه</a></li>
-      </ul>
-    </div>
-  </body>
-</html>
+
+        

@@ -20,7 +20,7 @@ body {
     text-align: right;
     direction: rtl;
     background-repeat: no-repeat;
-    background-size:cover;
+    background-size: cover;
     background-attachment: fixed;
 }
 
@@ -30,13 +30,13 @@ hr {
     box-shadow: 0 0 10px 1px #d7d7d7;
 }
 
+
 /* header style */
 
 header {
     background-color: #181818;
     height: 90px;
 }
-
 
 .inliner {
     display: flex;
@@ -61,8 +61,6 @@ header {
     padding-left: 35px;
 }
 
-
-
 .inliner li {
     margin-left: 20px;
     margin-right: 20px;
@@ -79,17 +77,20 @@ header {
 }
 
 .inliner-tools li a {
-    text-decoration:none;
+    text-decoration: none;
     color: aliceblue;
     font-size: 15px;
     margin-top: 20px;
 }
 
-.inliner li a {
-    text-decoration:none;
+.inliner a {
+    text-decoration: none;
     color: aliceblue;
     font-size: 35px;
     margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
 }
 
 .inliner .space {
@@ -101,6 +102,11 @@ header {
     width: 70px;
     height: 70px;
 }
+
+.link-btn {
+    text-decoration: none;
+}
+
 
 /* tools style */
 
@@ -124,7 +130,6 @@ header {
     width: max-content;
     margin-left: auto;
     margin-right: auto;
-    
 }
 
 .metric {
@@ -138,8 +143,6 @@ header {
     margin-bottom: 80px;
     position: relative;
     box-shadow: 0 0 30px 2px #333333;
-    border-radius: 8px;
-
 }
 
 .container {
@@ -155,12 +158,22 @@ header {
     display: flex;
 }
 
+.shurt-warper {
+    display: flex;
+    flex-direction: column;
+}
+
 .metric-block {
     text-align: center;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     display: flex;
+}
+
+.short {
+    all: unset;
+    width: 100%;
 }
 
 .full {
@@ -178,7 +191,6 @@ header {
 
 .discription {
     color: #f0f8ff;
-    
 }
 
 h4 {
@@ -198,7 +210,7 @@ h4 {
 .login-box {
     background-color: #181818;
     width: 400px;
-    height:100vh;
+    height: 100vh;
     padding: 60px;
     align-items: center;
     margin: auto;
@@ -214,18 +226,21 @@ h4 {
     padding-bottom: calc(100vh / 3);
 }
 
-input[type=text],input[type=password],input[type=number],.username{
+input[type=text],
+input[type=password],
+input[type=number],
+.username {
     all: unset;
     text-align: center;
     background-color: #e8f0fe;
-    border-radius: 8px;
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
 }
 
-input[type=text]:hover,input[type=password]:hover{
+input[type=text]:hover,
+input[type=password]:hover {
     box-shadow: 0 0 25px 2px #333333;
 }
 
@@ -233,12 +248,11 @@ input[type=text]:hover,input[type=password]:hover{
     height: 50%;
 }
 
-
-
-button[type=submit],button[type=reset]{
+button[type=submit],
+button[type=reset],
+.short {
     all: unset;
     text-align: center;
-    border-radius: 8px;
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -247,9 +261,9 @@ button[type=submit],button[type=reset]{
     color: #d7d7d7;
 }
 
-
-
-button[type=reset]:hover,button[type=submit]:hover{
+button[type=reset]:hover,
+button[type=submit]:hover,
+.short:hover {
     box-shadow: 0 0 25px 2px #333333;
 }
 
@@ -269,7 +283,6 @@ select {
     all: unset;
     text-align: center;
     background-color: #e8f0fe;
-    border-radius: 8px;
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -281,7 +294,6 @@ textarea {
     all: unset;
     text-align: center;
     background-color: #e8f0fe;
-    border-radius: 8px;
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -289,11 +301,11 @@ textarea {
     text-align: right;
 }
 
-form input[type=text],form input[type=number]{
+form input[type=text],
+form input[type=number] {
     all: unset;
     text-align: center;
     background-color: #e8f0fe;
-    border-radius: 8px;
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;

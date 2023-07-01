@@ -1,0 +1,20 @@
+{% extends 'base\html\main.html' %}
+
+
+{% block "income" %}
+<div class="metric">
+  <h4>ثبت درآمد</h4>
+  <form method="post" name="expense">
+      {% csrf_token %}
+      {{ form.as_div }}
+      <button type="reset">خالی کردن فرم</button>
+      <button type="submit">ذخیره</button>
+  </form>
+  
+</div>
+{% endblock "income" %}
+
+
+
+
+        

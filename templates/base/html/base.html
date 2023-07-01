@@ -1,107 +1,71 @@
-{% load static %}
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{% static 'css\main.css' %}" />
-    <title>Document</title>
-    <style>
-      @font-face {
-        font-family: "shabnam";
-        font-style: normal;
-        font-weight: 400;
-        src: url("{% static 'font\\Shabnam.eot' %}");
-        src: url("{% static 'font\\Shabnam.eot' %}?#iefix")
-            format("embedded-opentype"),
-          url("{% static 'font\\Shabnam.woff2' %}") format("woff2"),
-          url("{% static 'font\\Shabnam.woff' %}") format("woff"),
-          url("{% static 'font\\Shabnam.ttf' %}") format("truetype");
-      }
-
-      body {
-        background-image: url("{% static 'image\\background.jpg' %}");
-        font-family: shabnam;
-      }
-
-      
-    </style>
-  </head>
-  <script
-    data-cfasync="false"
-    type="text/javascript"
-    src="https://code.jquery.com/jquery.min.js"
-  ></script>
-  <script>
-    function topFunction() {
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
-    }
-  </script>
-  <body>
-    <header>
-      <div class="inliner">
-        <nav>
-          <div>
-            <ul class="inliner" id="list">
-              <li><a href="">داشبورد</a></li>
-              <li><a href="">یادداشت</a></li>
-              <li><a href="">خرج</a></li>
-              <li><a href="">دخل</a></li>
-            </ul>
-          </div>
-        </nav>
-        <div class="space"></div>
-        <nav>
-          <a href="">
-            <img class="logo" src="{% static 'icon\icon.png' %}" />
-          </a>
-        </nav>
-      </div>
-    </header>
+{% extends 'base\html\main.html' %}
 
 
+{% block "dashbourd" %}
 
-    <main>
       <section class="metric">
         <div class="container">
           <h4>نمای کلی</h4>
           <div class="metric-warper">
             <div class="metric-block">
               <div class="metric-title">{{ nt }}</div>
+              <div class="discription">تعداد</div>
               <div class="discription">یادداشت های شما</div>
             </div>
             <div class="metric-block">
               <div class="metric-title">{{ inc }}</div>
+              <div class="discription">تعداد</div>
               <div class="discription">درآمد ثبت شده</div>
             </div>
             <div class="metric-block">
               <div class="metric-title">{{ exp }}</div>
+              <div class="discription">تعداد</div>
               <div class="discription">هزینه ثبت شده</div>
             </div>
             <div class="metric-block">
-              <div class="metric-title">{{ ss }}</div>
+              <div class="metric-title">{{ ssmark }} {{ ss }}</div>
+              <div class="discription">(تومان)</div>
               <div class="discription">موجودی حساب</div>
+
             </div>
           </div>
         </div>
       </section>
 
-      <div class="fix-scroll">
-      
-      </div>
+      <section class="metric">
+        <div class="container">
+          <h4>میانبرها</h4>
+          <div class="shurt-warper">
+            <div class="shurt-block">
+              <a href="{% url 'expense_page' %}" class="link-btn"><button  class="short" >افزودن هزینه</button></a>
+            </div>
+            <div class="shurt-block">
+              <a href="{% url 'income_page' %}" class="link-btn"><button  class="short" >افزودن درآمد</button></a>
+            </div>
+            <div class="shurt-block">
+              <a href="{% url 'note_page' %}" class="link-btn"><button class="short">افزودن یادداشت</button></a>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <div class="tools">
-        <ul class="inliner-tools">
-          <li><a href="">بارگزاری مجدد</a></li>
-          <li><a href="{% url 'admin:index' %}">ادمین پنل</a></li>
-          <li><a href="{% url 'logout_page' %}">خروج از اکانت</a></li>
-          <li><a  onclick="topFunction()">رفتن به بالای صفحه</a></li>
-        </ul>
-      </div>
+      <section class="metric">
+        <div class="container">
+          <h4>تاریخچه ها</h4>
+          <div class="shurt-warper">
+            <div class="shurt-block">
+              <button class="short">هزینه ها</button>
+            </div>
+            <div class="shurt-block">
+              <button class="short">درآمد ها</button>
+            </div>
+            <div class="shurt-block">
+              <button class="short">بادداشت ها</button>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    </main>
-  </body>
-</html>
+{% endblock "dashbourd" %}
+
+    

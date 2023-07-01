@@ -4,50 +4,48 @@ from django.db import models
 
 class Expense(models.Model):
     TAGS = (
-        ("Food","Food"),
-        ("Car","Car"),
-        ("House","House"),
-        ("General","General"),
-        ("Treatment","Treatment"),
-        ("Recreation","Recreation"),
-        ("Travel","Travel"),
-        ("Other","Other"),
+        ("Food","غذا"),
+        ("Car","ماشین"),
+        ("House","خانه"),
+        ("General","عمومی"),
+        ("Treatment","درمان"),
+        ("Recreation","تفریح"),
+        ("Travel","سفر"),
+        ("Other","متفرقه"),
     )
     FAVORITE = (
-        ("True","True"),
-        ("False","False")
+        ("True","فعال"),
+        ("False","غیرفعال")
     )
     favorite = models.CharField(choices=FAVORITE,default="False",max_length=6)
     tag = models.CharField(choices=TAGS,blank=True,null=True,max_length=15)
     title = models.CharField(max_length=100)
 
-    price = models.DecimalField(max_digits=8, decimal_places=2)
-
+    price = models.CharField(max_length=255)
+    
     description = models.TextField(null=True,blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    @property
-    def price_display(self):
-        return f"R {self.price}"
+    
 
 
 class Income(models.Model):
     TAGS = (
-        ("Salary","Salary"),
-        ("interest","interest"),
-        ("monthly","monthly"),
-        ("other","other"),
+        ("Salary","حقوق"),
+        ("interest","سود"),
+        ("monthly","ماهیانه"),
+        ("other","متفرقه"),
     )
     FAVORITE = (
-        ("True","True"),
-        ("False","False")
+        ("True","فعال"),
+        ("False","غیرفعال")
     )
     favorite = models.CharField(choices=FAVORITE,default="False",max_length=6)
     tag = models.CharField(choices=TAGS,blank=True,null=True,max_length=15)
     title = models.CharField(max_length=100)
 
-    price = models.DecimalField(max_digits=8, decimal_places=2)
+    price = models.CharField(max_length=255)
 
     description = models.TextField(null=True,blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -60,12 +58,12 @@ class Income(models.Model):
     
 class Note(models.Model):
     TAGS = (
-        ("reminder","reminder"),
-        ("tip","tip"),
+        ("reminder","یادآور"),
+        ("tip","نکته"),
     )
     FAVORITE = (
-        ("True","True"),
-        ("False","False")
+        ("True","فعال"),
+        ("False","غیرفعال")
     )
     favorite = models.CharField(choices=FAVORITE,default="False",max_length=6)
     tag = models.CharField(choices=TAGS,blank=True,null=True,max_length=15)
