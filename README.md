@@ -9,9 +9,9 @@ Accounting software with django and python
 
 ## Screenshot
 
-![login](https://github.com/kinite-gp/accounting/tree/main/static/image/login.png "login")
+![login](https://github.com/kinite-gp/accounting/blob/main/static/image/login.png "login")
 
-![dashbord](https://github.com/kinite-gp/accounting/tree/main/static/image/dashbord.png "dashbord")
+![dashbord](https://github.com/kinite-gp/accounting/blob/main/static/image/dashbord.png "dashbord")
 
 ## Note
 
