@@ -1,0 +1,37 @@
+{% extends 'base\html\main.html' %}
+{% load static %}
+
+{% block "expense_list" %}
+
+{% for obj in objects %}
+<div class="card">
+        <a href="{% url "expense_item" obj.obj_id %}">
+        {% if obj.favorite == "True" %}
+            <img class="logo_st" src="{% static 'icon\like.png' %}"/>    
+        {% elif obj.favorite == "False" %}
+            <img class="logo_st" src="{% static 'icon\unlike.png' %}"/>    
+        {% endif %}
+
+        {% if obj.tag == "Food" %}
+            <img class="logo_st" src="{% static 'icon\food.png' %}"/>     
+        {% elif obj.tag == "Car" %}
+            <img class="logo_st" src="{% static 'icon\car.png' %}"/>   
+        {% elif obj.tag == "House" %}
+            <img class="logo_st" src="{% static 'icon\home.png' %}"/>   
+        {% elif obj.tag == "General" %}
+            <img class="logo_st" src="{% static 'icon\general.png' %}"/>   
+        {% elif obj.tag == "Treatment" %}
+            <img class="logo_st" src="{% static 'icon\doctors.png' %}"/>   
+        {% elif obj.tag == "Recreation" %}
+            <img class="logo_st" src="{% static 'icon\game.png' %}"/>   
+        {% elif obj.tag == "Travel" %}
+            <img class="logo_st" src="{% static 'icon\travel.png' %}"/>   
+        {% elif obj.tag == "Other" %}
+            <img class="logo_st" src="{% static 'icon\other.png' %}"/>   
+        {% endif %}
+        <h3 class="title_obj">{{ obj.title }}</h3>
+        </a>
+</div>
+{% endfor %}
+        
+{% endblock "expense_list" %}

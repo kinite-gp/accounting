@@ -312,3 +312,54 @@ form input[type=number] {
     box-sizing: border-box;
     text-align: right;
 }
+
+.card {
+    width: 740px;
+    background-color: #181818;
+    border-bottom: 4px solid #f0f8ff;
+    padding: 30px 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    position: relative;
+    box-shadow: 0 0 30px 2px #333333;
+}
+
+a {
+    text-decoration: none;
+}
+
+.card a {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.logo_st {
+    width: 30px;
+    height: 30px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.title_obj {
+    font-size: 24px;
+    color: #d7d7d7;
+    margin-left: auto;
+}
+
+.row_item {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 24px;
+}
+
+.card h2 {
+    font-size: 19px;
+    color: #d7d7d7;
+    margin-left: auto;
+}
+
+.detatime {
+    font-size: 9px;
+}

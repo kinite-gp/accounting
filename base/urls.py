@@ -11,4 +11,6 @@ urlpatterns = [
     path("expense/", expense_page, name="expense_page"),
     path("income/", income_page, name="income_page"),
     path("note/", note_page, name="note_page"),
+    path("expense_list/", expense_list_page, name="expense_list_page"),
+    path("expense_item/<str:obj_id>", expense_item, name="expense_item")
 ]

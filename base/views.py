@@ -104,3 +104,19 @@ def note_page(request):
     else:
         form = NoteForm()
         return render(request, "base\\html\\note.html", {"form":form})
+    
+    
+def expense_list_page(request):
+    objects_expense = Expense.objects.all()
+    context = {
+        "objects":objects_expense,
+    }
+    return render(request, "base\html\expense_list.html", context=context)
+
+
+def expense_item(request, obj_id):
+    object = Expense.objects.get(obj_id=obj_id)
+    context = {
+        "obj":object, 
+    }
+    return render(request, "base\html\item.html", context=context)

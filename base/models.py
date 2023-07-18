@@ -1,5 +1,5 @@
 from django.db import models
-
+from uuid import uuid4
 
 
 class Expense(models.Model):
@@ -17,6 +17,9 @@ class Expense(models.Model):
         ("True","فعال"),
         ("False","غیرفعال")
     )
+    
+    obj_id = models.UUIDField(primary_key=True, default=uuid4(), editable=False)
+    
     favorite = models.CharField(choices=FAVORITE,default="False",max_length=6)
     tag = models.CharField(choices=TAGS,blank=True,null=True,max_length=15)
     title = models.CharField(max_length=100)
